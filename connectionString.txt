@@ -1,0 +1,1 @@
+Data Source=Alina-PC;Initial Catalog=PlatformaEduDB;User Id=sa;Password=parola;
