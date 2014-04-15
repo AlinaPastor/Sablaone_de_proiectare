@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{154D0987-C92F-4C2D-97A4-55E042DDF0D3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlatformaEducationala</RootNamespace>
+    <AssemblyName>PlatformaEducationala</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbsentaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbsentaForm.Designer.cs">
+      <DependentUpon>AbsentaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddAbsentaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAbsentaForm.Designer.cs">
+      <DependentUpon>AddAbsentaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddAn_Studiu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAn_Studiu.Designer.cs">
+      <DependentUpon>AddAn_Studiu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddClasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClasa.Designer.cs">
+      <DependentUpon>AddClasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddElev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddElev.Designer.cs">
+      <DependentUpon>AddElev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddMaterie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMaterie.Designer.cs">
+      <DependentUpon>AddMaterie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNotaForm.Designer.cs">
+      <DependentUpon>AddNotaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProfesor.Designer.cs">
+      <DependentUpon>AddProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTezaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTezaForm.Designer.cs">
+      <DependentUpon>AddTezaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnulareNotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnulareNotaForm.Designer.cs">
+      <DependentUpon>AnulareNotaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsocAn_StudiuClasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsocAn_StudiuClasa.Designer.cs">
+      <DependentUpon>AsocAn_StudiuClasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsocAn_StudiuSemestru.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsocAn_StudiuSemestru.Designer.cs">
+      <DependentUpon>AsocAn_StudiuSemestru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsocClasaElev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsocClasaElev.Designer.cs">
+      <DependentUpon>AsocClasaElev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsocDiriginteClasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsocDiriginteClasa.Designer.cs">
+      <DependentUpon>AsocDiriginteClasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsocProfesorClasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsocProfesorClasa.Designer.cs">
+      <DependentUpon>AsocProfesorClasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsocProfesorMaterie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsocProfesorMaterie.Designer.cs">
+      <DependentUpon>AsocProfesorMaterie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLogicLayer\AbsentaBL.cs" />
+    <Compile Include="BusinessLogicLayer\An_StudiuBL.cs" />
+    <Compile Include="BusinessLogicLayer\ClasaBL.cs" />
+    <Compile Include="BusinessLogicLayer\ElevBL.cs" />
+    <Compile Include="BusinessLogicLayer\LoginBL.cs" />
+    <Compile Include="BusinessLogicLayer\MaterieBL.cs" />
+    <Compile Include="BusinessLogicLayer\MedieSemestruBL.cs" />
+    <Compile Include="BusinessLogicLayer\NotaBL.cs" />
+    <Compile Include="BusinessLogicLayer\ProfesorBL.cs" />
+    <Compile Include="BusinessLogicLayer\SemestruBL.cs" />
+    <Compile Include="DataAccessLayer\AbsentaDAL.cs" />
+    <Compile Include="DataAccessLayer\An_StudiuDAL.cs" />
+    <Compile Include="DataAccessLayer\ClasaDAL.cs" />
+    <Compile Include="DataAccessLayer\DALHelper.cs" />
+    <Compile Include="DataAccessLayer\DatabaseAccess.cs" />
+    <Compile Include="DataAccessLayer\ElevDAL.cs" />
+    <Compile Include="DataAccessLayer\LoginDAL.cs" />
+    <Compile Include="DataAccessLayer\MaterieDAL.cs" />
+    <Compile Include="DataAccessLayer\MedieSemestruDAL.cs" />
+    <Compile Include="DataAccessLayer\NotaDAL.cs" />
+    <Compile Include="DataAccessLayer\ProfesorDAL.cs" />
+    <Compile Include="DataAccessLayer\SemestruDAL.cs" />
+    <Compile Include="DeleteAn_Studiu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteAn_Studiu.Designer.cs">
+      <DependentUpon>DeleteAn_Studiu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteClasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteClasa.Designer.cs">
+      <DependentUpon>DeleteClasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteElev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteElev.Designer.cs">
+      <DependentUpon>DeleteElev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteMaterie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteMaterie.Designer.cs">
+      <DependentUpon>DeleteMaterie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteProfesor.Designer.cs">
+      <DependentUpon>DeleteProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElevForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElevForm.Designer.cs">
+      <DependentUpon>ElevForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotivareAbsentaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotivareAbsentaForm.Designer.cs">
+      <DependentUpon>MotivareAbsentaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotaForm.Designer.cs">
+      <DependentUpon>NotaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfesorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfesorForm.Designer.cs">
+      <DependentUpon>ProfesorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TotalAbsClasaNemotivate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TotalAbsClasaNemotivate.Designer.cs">
+      <DependentUpon>TotalAbsClasaNemotivate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateAn_Studiu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateAn_Studiu.Designer.cs">
+      <DependentUpon>UpdateAn_Studiu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateAsocProfesorClasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateAsocProfesorClasa.Designer.cs">
+      <DependentUpon>UpdateAsocProfesorClasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateAsocProfesorMaterie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateAsocProfesorMaterie.Designer.cs">
+      <DependentUpon>UpdateAsocProfesorMaterie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateClasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateClasa.Designer.cs">
+      <DependentUpon>UpdateClasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateElev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateElev.Designer.cs">
+      <DependentUpon>UpdateElev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateMaterie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateMaterie.Designer.cs">
+      <DependentUpon>UpdateMaterie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateProfesor.Designer.cs">
+      <DependentUpon>UpdateProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TotalAbsClasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TotalAbsClasa.Designer.cs">
+      <DependentUpon>TotalAbsClasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VizualizareAbsentaNemotivataElev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizualizareAbsentaNemotivataElev.Designer.cs">
+      <DependentUpon>VizualizareAbsentaNemotivataElev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VizualizareAbsente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizualizareAbsente.Designer.cs">
+      <DependentUpon>VizualizareAbsente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VizualizareAbsenteTotalaElev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizualizareAbsenteTotalaElev.Designer.cs">
+      <DependentUpon>VizualizareAbsenteTotalaElev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VizualizareNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizualizareNote.Designer.cs">
+      <DependentUpon>VizualizareNote.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AbsentaForm.resx">
+      <DependentUpon>AbsentaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAbsentaForm.resx">
+      <DependentUpon>AddAbsentaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAn_Studiu.resx">
+      <DependentUpon>AddAn_Studiu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddClasa.resx">
+      <DependentUpon>AddClasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddElev.resx">
+      <DependentUpon>AddElev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddMaterie.resx">
+      <DependentUpon>AddMaterie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNotaForm.resx">
+      <DependentUpon>AddNotaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProfesor.resx">
+      <DependentUpon>AddProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTezaForm.resx">
+      <DependentUpon>AddTezaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnulareNotaForm.resx">
+      <DependentUpon>AnulareNotaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsocAn_StudiuClasa.resx">
+      <DependentUpon>AsocAn_StudiuClasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsocAn_StudiuSemestru.resx">
+      <DependentUpon>AsocAn_StudiuSemestru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsocClasaElev.resx">
+      <DependentUpon>AsocClasaElev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsocDiriginteClasa.resx">
+      <DependentUpon>AsocDiriginteClasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsocProfesorClasa.resx">
+      <DependentUpon>AsocProfesorClasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsocProfesorMaterie.resx">
+      <DependentUpon>AsocProfesorMaterie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteAn_Studiu.resx">
+      <DependentUpon>DeleteAn_Studiu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteClasa.resx">
+      <DependentUpon>DeleteClasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteElev.resx">
+      <DependentUpon>DeleteElev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteMaterie.resx">
+      <DependentUpon>DeleteMaterie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteProfesor.resx">
+      <DependentUpon>DeleteProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElevForm.resx">
+      <DependentUpon>ElevForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotivareAbsentaForm.resx">
+      <DependentUpon>MotivareAbsentaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotaForm.resx">
+      <DependentUpon>NotaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfesorForm.resx">
+      <DependentUpon>ProfesorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="TotalAbsClasaNemotivate.resx">
+      <DependentUpon>TotalAbsClasaNemotivate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateAn_Studiu.resx">
+      <DependentUpon>UpdateAn_Studiu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateAsocProfesorClasa.resx">
+      <DependentUpon>UpdateAsocProfesorClasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateAsocProfesorMaterie.resx">
+      <DependentUpon>UpdateAsocProfesorMaterie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateClasa.resx">
+      <DependentUpon>UpdateClasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateElev.resx">
+      <DependentUpon>UpdateElev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateMaterie.resx">
+      <DependentUpon>UpdateMaterie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateProfesor.resx">
+      <DependentUpon>UpdateProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalAbsClasa.resx">
+      <DependentUpon>TotalAbsClasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VizualizareAbsentaNemotivataElev.resx">
+      <DependentUpon>VizualizareAbsentaNemotivataElev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VizualizareAbsente.resx">
+      <DependentUpon>VizualizareAbsente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VizualizareAbsenteTotalaElev.resx">
+      <DependentUpon>VizualizareAbsenteTotalaElev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VizualizareNote.resx">
+      <DependentUpon>VizualizareNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
