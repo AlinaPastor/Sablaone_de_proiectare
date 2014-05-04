@@ -12,18 +12,19 @@ namespace PlatformaEducationala.DataAccessLayer
         DatabaseAccess db = new DatabaseAccess();
         public DataSet GetMedieSemByIDuri(int id_sem, int id_elev, int id_materie)
         {
-            SqlParameter[] paramList = new SqlParameter[]
+         /*   SqlParameter[] paramList = new SqlParameter[]
             {
                  new SqlParameter("@semestruID", id_sem),
                  new SqlParameter("@elevID",id_elev),
                  new SqlParameter("@materieID",id_materie )
             };
-            return db.ExecuteDataSet(DALHelper.Connection, "GetMedieSemByIDuri", paramList);
+            return db.ExecuteDataSet(DALHelper.Connection, "GetMedieSemByIDuri", paramList);*/
+            return null;
         }
 
         internal void AddMedie(int id_elev, int id_materie, int id_sem, int media)
         {
-            SqlParameter[] paramList = new SqlParameter[]
+            /*SqlParameter[] paramList = new SqlParameter[]
             {
                 
                 new SqlParameter("@semestruID", id_sem),
@@ -32,7 +33,7 @@ namespace PlatformaEducationala.DataAccessLayer
                  new SqlParameter("@medie",media)
 
             };
-            db.ExecuteNonQuery(DALHelper.Connection, "AddMedie", paramList);
+            db.ExecuteNonQuery(DALHelper.Connection, "AddMedie", paramList);*/
         }
     }
 }
