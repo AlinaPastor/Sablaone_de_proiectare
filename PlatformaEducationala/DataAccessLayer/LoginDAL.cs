@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace PlatformaEducationala.DataAccessLayer
 {
    public class LoginDAL
@@ -43,6 +44,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
         internal DataSet LoginAdmin(string user, string parola)
         {
+            db.GetProviderFactoryClasses();
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@user", user),
