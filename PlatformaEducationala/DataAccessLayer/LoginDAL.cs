@@ -32,22 +32,38 @@ namespace PlatformaEducationala.DataAccessLayer
 
         internal DataTable LoginDiriginte(string user, string parola)
         {
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@user", user),
-                new SqlParameter("@parola", parola)
-            };
+            DbParameter[] paramList = new DbParameter[2];
+
+            DbParameter paramUser = DALHelper.ProviderFactory.CreateParameter();
+            paramUser.ParameterName = "@user";
+            paramUser.Value = user;
+
+            DbParameter paramPass = DALHelper.ProviderFactory.CreateParameter();
+            paramPass.ParameterName = "@parola";
+            paramPass.Value = parola;
+
+
+            paramList[0] = paramUser;
+            paramList[1] = paramPass;
             return db.ExecuteDataSet(DALHelper.Connection, "LoginDiriginte", paramList);
         }
 
         internal DataTable LoginElev(string user, string parola)
         {
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@user", user),
-                new SqlParameter("@parola", parola)
-            };
-           return db.ExecuteDataSet(DALHelper.Connection, "LoginElev", paramList);
+            DbParameter[] paramList = new DbParameter[2];
+
+            DbParameter paramUser = DALHelper.ProviderFactory.CreateParameter();
+            paramUser.ParameterName = "@user";
+            paramUser.Value = user;
+
+            DbParameter paramPass = DALHelper.ProviderFactory.CreateParameter();
+            paramPass.ParameterName = "@parola";
+            paramPass.Value = parola;
+
+
+            paramList[0] = paramUser;
+            paramList[1] = paramPass;
+            return db.ExecuteDataSet(DALHelper.Connection, "LoginElev", paramList);
         }
 
         internal DataTable LoginAdmin(string user, string parola)
