@@ -23,8 +23,8 @@ namespace PlatformaEducationala
         {
             int clasaID = int.Parse(comboBoxClasaUpdate.SelectedValue.ToString());
             ClasaBL clasaBL = new ClasaBL();
-            DataSet ds = clasaBL.GetClasaById(clasaID);
-            textBoxNumeClasa.Text = ds.Tables[0].Rows[0]["nume_clasa"].ToString();
+            DataTable ds = clasaBL.GetClasaById(clasaID);
+            textBoxNumeClasa.Text = ds.Rows[0]["nume_clasa"].ToString();
             
         }
 
@@ -33,7 +33,7 @@ namespace PlatformaEducationala
             ClasaBL clasaBL = new ClasaBL();
             comboBoxClasaUpdate.DisplayMember = "nume_clasa";
             comboBoxClasaUpdate.ValueMember = "id_clasa";
-            comboBoxClasaUpdate.DataSource = clasaBL.GetClase().Tables[0];
+            comboBoxClasaUpdate.DataSource = clasaBL.GetClase();
         }
 
         

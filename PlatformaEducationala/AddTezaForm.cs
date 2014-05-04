@@ -34,8 +34,8 @@ namespace PlatformaEducationala
             if (teza != 0)
             {
                 ClasaBL cls = new ClasaBL();
-                DataSet verifTeza =  cls.VerifTeza(materieID,clasaID);
-                bool areTeza = bool.Parse(verifTeza.Tables[0].Rows[0]["teza"].ToString());
+                DataTable verifTeza =  cls.VerifTeza(materieID,clasaID);
+                bool areTeza = bool.Parse(verifTeza.Rows[0]["teza"].ToString());
                 if(areTeza)
                 {
 

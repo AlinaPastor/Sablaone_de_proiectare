@@ -11,12 +11,12 @@ namespace PlatformaEducationala.BusinessLogicLayer
     {
 
         MaterieDAL materieDAL = new MaterieDAL();
-        public DataSet GetMaterii()
+        public DataTable GetMaterii()
         {
             return materieDAL.GetMaterii();
         }
 
-        public DataSet GetMaterieById(int materieID)
+        public DataTable GetMaterieById(int materieID)
         {
             return materieDAL.GetMaterieById(materieID);
         }
@@ -36,7 +36,7 @@ namespace PlatformaEducationala.BusinessLogicLayer
             materieDAL.DeleteMaterie(materieID);
         }
 
-        public DataSet GetMaterieByProfId(int profID)
+        public DataTable GetMaterieByProfId(int profID)
         {
             return materieDAL.GetMaterieByProfId(profID);
         }

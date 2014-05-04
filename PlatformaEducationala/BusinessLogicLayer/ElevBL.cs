@@ -10,17 +10,17 @@ namespace PlatformaEducationala.BusinessLogicLayer
     class ElevBL
     {
         ElevDAL elevDAL = new ElevDAL();
-        public DataSet GetElevi()
+        public DataTable GetElevi()
         {
             return elevDAL.GetElevi();
         }
 
-        public DataSet GetEleviFaraClasa()
+        public DataTable GetEleviFaraClasa()
         {
             return elevDAL.GetEleviFaraClasa();
         }
 
-        public DataSet GetEleviById(int elevID)
+        public DataTable GetEleviById(int elevID)
         {
             return elevDAL.GetEleviById(elevID);
         }
@@ -46,7 +46,7 @@ namespace PlatformaEducationala.BusinessLogicLayer
             elevDAL.AsocElevClasa(elevID,clasaID);
         }
 
-        public DataSet GetEleviByClasaId(int clasaID)
+        public DataTable GetEleviByClasaId(int clasaID)
         {
             return elevDAL.GetEleviByClasaId(clasaID);
         }

@@ -25,7 +25,7 @@ namespace PlatformaEducationala
             MaterieBL materiiBL = new MaterieBL();
             comboBoxMateriiAsocPMC.DisplayMember = "nume_materie";
             comboBoxMateriiAsocPMC.ValueMember = "id_materie";
-            comboBoxMateriiAsocPMC.DataSource = materiiBL.GetMaterii().Tables[0];
+            comboBoxMateriiAsocPMC.DataSource = materiiBL.GetMaterii();
            
         }
 
@@ -37,7 +37,7 @@ namespace PlatformaEducationala
                 int id_materie = int.Parse(comboBoxMateriiAsocPMC.SelectedValue.ToString());
                 comboBoxProfiAsocPMC.DisplayMember = "nume_profesor";
                 comboBoxProfiAsocPMC.ValueMember = "id_profesor";
-                comboBoxProfiAsocPMC.DataSource = profBL.GetProfesoriByMaterieId(id_materie).Tables[0];
+                comboBoxProfiAsocPMC.DataSource = profBL.GetProfesoriByMaterieId(id_materie).Rows;
          
               
           
@@ -48,7 +48,7 @@ namespace PlatformaEducationala
             ClasaBL clasaBL = new ClasaBL();
             comboBoxClaseAsocPMC.DisplayMember = "nume_clasa";
             comboBoxClaseAsocPMC.ValueMember = "id_clasa";
-            comboBoxClaseAsocPMC.DataSource = clasaBL.GetClase().Tables[0];
+            comboBoxClaseAsocPMC.DataSource = clasaBL.GetClase();
         }
 
 

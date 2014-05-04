@@ -24,7 +24,7 @@ namespace PlatformaEducationala
             SemestruBL semBL = new SemestruBL();
             comboBoxSemAsoc.DisplayMember = "nr_semestru";
             comboBoxSemAsoc.ValueMember = "id_semestru";
-            comboBoxSemAsoc.DataSource = semBL.GetSemestre().Tables[0];
+            comboBoxSemAsoc.DataSource = semBL.GetSemestre();
         }
 
         private void ListAniStudiu()
@@ -32,7 +32,7 @@ namespace PlatformaEducationala
             An_StudiuBL anBL = new An_StudiuBL();
             comboBoxAnStudiuAsoc.DisplayMember = "an";
             comboBoxAnStudiuAsoc.ValueMember = "id_an_studiu";
-            comboBoxAnStudiuAsoc.DataSource = anBL.GetAni_Studiu().Tables[0];
+            comboBoxAnStudiuAsoc.DataSource = anBL.GetAni_Studiu();
         }
 
 

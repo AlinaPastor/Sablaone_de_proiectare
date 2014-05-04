@@ -23,8 +23,8 @@ namespace PlatformaEducationala
         {
             int materieID = int.Parse(comboBoxMaterieUpdate.SelectedValue.ToString());
             MaterieBL materieBL = new MaterieBL();
-            DataSet ds = materieBL.GetMaterieById(materieID);
-            textBoxNumeMaterie.Text = ds.Tables[0].Rows[0]["nume_materie"].ToString();
+            DataTable ds = materieBL.GetMaterieById(materieID);
+            textBoxNumeMaterie.Text = ds.Rows[0]["nume_materie"].ToString();
 
         }
 
@@ -33,7 +33,7 @@ namespace PlatformaEducationala
             MaterieBL materieBL = new MaterieBL();
             comboBoxMaterieUpdate.DisplayMember = "nume_materie";
             comboBoxMaterieUpdate.ValueMember = "id_materie";
-            comboBoxMaterieUpdate.DataSource = materieBL.GetMaterii().Tables[0];
+            comboBoxMaterieUpdate.DataSource = materieBL.GetMaterii();
         }
 
         private void comboBoxMaterieUpdate_SelectedIndexChanged(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace PlatformaEducationala
         private void vizualizareTotalaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbsentaBL abs = new AbsentaBL();
-            DataSet absente = abs.GetAbsenteByIDElev(id_elev);
+            DataTable absente = abs.GetAbsenteByIDElev(id_elev);
             VizualizareAbsenteTotalaElev absT = new VizualizareAbsenteTotalaElev(absente);
             absT.ShowDialog();
             absT.Dispose();
@@ -32,7 +32,7 @@ namespace PlatformaEducationala
         {
 
             AbsentaBL abs = new AbsentaBL();
-            DataSet absente = abs.GetAbsenteNemotivateByIDElev(id_elev);
+            DataTable absente = abs.GetAbsenteNemotivateByIDElev(id_elev);
             VizualizareAbsentaNemotivataElev absT = new VizualizareAbsentaNemotivataElev(absente);
             absT.ShowDialog();
             absT.Dispose();

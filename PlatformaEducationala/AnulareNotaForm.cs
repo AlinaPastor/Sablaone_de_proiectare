@@ -28,7 +28,7 @@ namespace PlatformaEducationala
             NotaBL notaBL = new NotaBL();
             comboBoxListaNote.DisplayMember = "nota";
             comboBoxListaNote.ValueMember = "id_nota";
-            comboBoxListaNote.DataSource = notaBL.GetNoteByIDuri( id_elev, id_mat, id_sem).Tables[0];
+            comboBoxListaNote.DataSource = notaBL.GetNoteByIDuri( id_elev, id_mat, id_sem);
         }
         private void buttonMotiveazaAbsentaCancel_Click(object sender, EventArgs e)
         {
@@ -42,10 +42,10 @@ namespace PlatformaEducationala
                 MedieSemestruBL med = new MedieSemestruBL();
                 NotaBL notaBL = new NotaBL();
                 int idNota = int.Parse(comboBoxListaNote.SelectedValue.ToString());
-                DataSet m = med.GetMedieSemIDuri(id_sem, id_elev, id_mat);
+                DataTable m = med.GetMedieSemIDuri(id_sem, id_elev, id_mat);
                 int medie = 0;
                 if (m != null)
-                    medie = int.Parse(m.Tables[0].Rows[0]["medie_semstru"].ToString());
+                    medie = int.Parse(m.Rows[0]["medie_semstru"].ToString());
 
                 if (medie == 0)
                 {
@@ -61,7 +61,7 @@ namespace PlatformaEducationala
             }
 
             NotaBL notaBl = new NotaBL();
-            DataSet listaNote = notaBl.GetNoteByIDuri(id_elev, id_mat, id_sem);
+            DataTable listaNote = notaBl.GetNoteByIDuri(id_elev, id_mat, id_sem);
             NotaForm nf = new NotaForm();
             nf.setListaNote(listaNote);
             

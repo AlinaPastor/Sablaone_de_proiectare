@@ -23,7 +23,7 @@ namespace PlatformaEducationala
             An_StudiuBL anBL = new An_StudiuBL();
             comboBoxDeleteAnStudiu.DisplayMember = "an";
             comboBoxDeleteAnStudiu.ValueMember = "id_an_studiu";
-            comboBoxDeleteAnStudiu.DataSource = anBL.GetAni_Studiu().Tables[0];
+            comboBoxDeleteAnStudiu.DataSource = anBL.GetAni_Studiu();
         }
 
 

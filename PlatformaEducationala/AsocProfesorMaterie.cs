@@ -24,7 +24,7 @@ namespace PlatformaEducationala
             MaterieBL materiiBL = new MaterieBL();
             comboBoxMateriiAsoc.DisplayMember = "nume_materie";
             comboBoxMateriiAsoc.ValueMember = "id_materie";
-            comboBoxMateriiAsoc.DataSource = materiiBL.GetMaterii().Tables[0];
+            comboBoxMateriiAsoc.DataSource = materiiBL.GetMaterii();
         }
 
         private void ListProfesori()
@@ -32,7 +32,7 @@ namespace PlatformaEducationala
             ProfesorBL profBL = new ProfesorBL();
             comboBoxProfiAsoc.DisplayMember = "nume_profesor";
             comboBoxProfiAsoc.ValueMember = "id_profesor";
-            comboBoxProfiAsoc.DataSource = profBL.GetProfesori().Tables[0];
+            comboBoxProfiAsoc.DataSource = profBL.GetProfesori();
         }
 
         private void buttonAsociereMateriiPofesori_Click(object sender, EventArgs e)

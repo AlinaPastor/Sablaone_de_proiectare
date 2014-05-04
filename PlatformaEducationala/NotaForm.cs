@@ -14,8 +14,8 @@ namespace PlatformaEducationala
     {
         
         int id_prof_logat;
-        DataSet listaNote = null;
-        public void setListaNote(DataSet d)
+        DataTable listaNote = null;
+        public void setListaNote(DataTable d)
         {
             listaNote = d;
         }
@@ -38,7 +38,7 @@ namespace PlatformaEducationala
             SemestruBL semBL = new SemestruBL();
             comboBoxNotaSem.DisplayMember = "nr_semestru";
             comboBoxNotaSem.ValueMember = "id_semestru";
-            comboBoxNotaSem.DataSource = semBL.GetSemestre().Tables[0];
+            comboBoxNotaSem.DataSource = semBL.GetSemestre();
         }
 
         private void ListMaterii()
@@ -48,7 +48,7 @@ namespace PlatformaEducationala
             {
                 comboBoxNotaMaterie.DisplayMember = "nume_materie";
                 comboBoxNotaMaterie.ValueMember = "id_materie";
-                comboBoxNotaMaterie.DataSource = materiiBL.GetMaterieByProfId(id_prof_logat).Tables[0];
+                comboBoxNotaMaterie.DataSource = materiiBL.GetMaterieByProfId(id_prof_logat).Rows;
             }
             catch (Exception e)
             {
@@ -64,7 +64,7 @@ namespace PlatformaEducationala
                 ClasaBL clasaBL = new ClasaBL();
                 comboBoxNotaClasa.DisplayMember = "nume_clasa";
                 comboBoxNotaClasa.ValueMember = "id_clasa";
-                comboBoxNotaClasa.DataSource = clasaBL.GetClasaByProfMatId(id_prof_logat, materieID).Tables[0];
+                comboBoxNotaClasa.DataSource = clasaBL.GetClasaByProfMatId(id_prof_logat, materieID).Rows;
             }
             catch (Exception e)
             {
@@ -82,7 +82,7 @@ namespace PlatformaEducationala
 
                 comboBoxNotaElev.DisplayMember = "nume_elev";
                 comboBoxNotaElev.ValueMember = "id_elev";
-                comboBoxNotaElev.DataSource = elevBL.GetEleviByClasaId(clasaID).Tables[0];
+                comboBoxNotaElev.DataSource = elevBL.GetEleviByClasaId(clasaID).Rows;
             }
             catch (Exception e)
             {
@@ -152,25 +152,25 @@ namespace PlatformaEducationala
                 int clasaId = int.Parse(comboBoxNotaClasa.SelectedValue.ToString());
                 NotaBL notBL = new NotaBL();
                 ClasaBL clBl = new ClasaBL();
-                DataSet t = clBl.VerifTeza(materieID, clasaId);
-                bool tezica = bool.Parse(t.Tables[0].Rows[0]["teza"].ToString());
-                DataSet note = notBL.GetNoteByIDuri1(elevID, materieID, semID);
-                if (note.Tables[0].Rows.Count >= 3)
+                DataTable t = clBl.VerifTeza(materieID, clasaId);
+                bool tezica = bool.Parse(t.Rows[0]["teza"].ToString());
+                DataTable note = notBL.GetNoteByIDuri1(elevID, materieID, semID);
+                if (note.Rows.Count >= 3)
                 {
                     int medie = 0;
                     int teza = 0;
-                    for (int i = 0; i < note.Tables[0].Rows.Count; i++)
+                    for (int i = 0; i < note.Rows.Count; i++)
 
-                        //if (note.Tables[0].Rows[i]["nota"] != null)
-                            medie = medie + int.Parse(note.Tables[0].Rows[i]["nota"].ToString());
+                        //if (note.Rows.Rows[i]["nota"] != null)
+                            medie = medie + int.Parse(note.Rows[i]["nota"].ToString());
                         //else
-                            //teza = int.Parse(note.Tables[0].Rows[i]["teza"].ToString());
-                    medie = medie / note.Tables[0].Rows.Count;
+                            //teza = int.Parse(note.Rows.Rows[i]["teza"].ToString());
+                    medie = medie / note.Rows.Count;
                     if (tezica )
                     {
 
                         t = notBL.GetTezaByIDuri(elevID, materieID, semID);
-                        teza = int.Parse(t.Tables[0].Rows[0]["teza"].ToString());
+                        teza = int.Parse(t.Rows[0]["teza"].ToString());
                         medie = (medie * 3 + teza) / 4;
                     }
                    

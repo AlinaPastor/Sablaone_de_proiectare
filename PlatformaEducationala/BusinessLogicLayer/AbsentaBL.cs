@@ -11,28 +11,28 @@ namespace PlatformaEducationala.BusinessLogicLayer
     {
         AbsentaDAL absDAL = new AbsentaDAL();
 
-        public DataSet GetAbsenteByIDuri(int id_sem, int id_elev, int id_materie)
+        public DataTable GetAbsenteByIDuri(int id_sem, int id_elev, int id_materie)
         {
             return absDAL.GetAbsenteByIDuri(id_sem,  id_elev, id_materie);
         }
 
-        public DataSet GetAbsenteByIDElev(int id_elev)
+        public DataTable GetAbsenteByIDElev(int id_elev)
         {
             return absDAL.GetAbsenteByIDElev(id_elev);
         }
 
-        public DataSet GetAbsenteNemotivateByIDElev(int id_elev)
+        public DataTable GetAbsenteNemotivateByIDElev(int id_elev)
         {
             return absDAL.GetAbsenteNemotivateByIDElev(id_elev);
         }
 
 
-        public DataSet GetAbsenteClasa(int id_clasa)
+        public DataTable GetAbsenteClasa(int id_clasa)
         {
             return absDAL.GetAbsenteClasa(id_clasa);
         }
 
-        public DataSet GetAbsenteClasaNemotivate(int id_clasa)
+        public DataTable GetAbsenteClasaNemotivate(int id_clasa)
         {
             return absDAL.GetAbsenteClasaNemotivate(id_clasa);
         }
@@ -47,7 +47,7 @@ namespace PlatformaEducationala.BusinessLogicLayer
            absDAL.MotivareAbsenta(id_absenta);
         }
 
-        public DataSet GetMotivabilitateById(int id_absenta)
+        public DataTable GetMotivabilitateById(int id_absenta)
         {
             return absDAL.GetMotivabilitateById(id_absenta);
         }

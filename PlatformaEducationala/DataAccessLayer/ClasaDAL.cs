@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace PlatformaEducationala.DataAccessLayer
 {
@@ -51,7 +52,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
             DbParameter paramClasaId = DALHelper.ProviderFactory.CreateParameter();
             paramClasaId.ParameterName = "@clasaID";
-            paramClasaId.Value = clasaID;
+            paramClasaId.Value = id_clasa;
 
             DbParameter paramNume = DALHelper.ProviderFactory.CreateParameter();
             paramNume.ParameterName = "@nume";
@@ -83,7 +84,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
             DbParameter paramClasaId = DALHelper.ProviderFactory.CreateParameter();
             paramClasaId.ParameterName = "@clasaID";
-            paramClasaId.Value = clasaID;
+            paramClasaId.Value = id_clasa;
 
             DbParameter paramProfesorId = DALHelper.ProviderFactory.CreateParameter();
             paramProfesorId.ParameterName = "@profesorID";
@@ -102,7 +103,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
             DbParameter paramClasaId = DALHelper.ProviderFactory.CreateParameter();
             paramClasaId.ParameterName = "@clasaID";
-            paramClasaId.Value = clasaID;
+            paramClasaId.Value = id_clasa;
 
             DbParameter paramAnStudiuId = DALHelper.ProviderFactory.CreateParameter();
             paramAnStudiuId.ParameterName = "@an_studiuID";
@@ -198,11 +199,11 @@ namespace PlatformaEducationala.DataAccessLayer
 
             DbParameter paramMaterie = DALHelper.ProviderFactory.CreateParameter();
             paramMaterie.ParameterName = "@materieID";
-            paramMaterie.Value = id_materie;
+            paramMaterie.Value = matID;
 
             DbParameter paramProfesorId = DALHelper.ProviderFactory.CreateParameter();
             paramProfesorId.ParameterName = "@profesorID";
-            paramProfesorId.Value = id_profesor;
+            paramProfesorId.Value = profID;
 
             paramList[0] = paramMaterie;
             paramList[1] = paramProfesorId;
@@ -217,11 +218,11 @@ namespace PlatformaEducationala.DataAccessLayer
 
             DbParameter paramMaterie = DALHelper.ProviderFactory.CreateParameter();
             paramMaterie.ParameterName = "@materieID";
-            paramMaterie.Value = id_materie;
+            paramMaterie.Value = matID;
 
             DbParameter paramClasaId = DALHelper.ProviderFactory.CreateParameter();
             paramClasaId.ParameterName = "@clasaID";
-            paramClasaId.Value = id_clasa;
+            paramClasaId.Value = clasaID;
 
             paramList[0] = paramMaterie;
             paramList[1] = paramClasaId;

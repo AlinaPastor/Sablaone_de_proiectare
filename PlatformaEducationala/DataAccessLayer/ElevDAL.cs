@@ -40,7 +40,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
         internal void AddElev(string nume, string prenume, string user, string parola)
         {
-            DbParameter[] paramList = new DbParameter[1];
+            DbParameter[] paramList = new DbParameter[4];
             
             DbParameter paramNume = DALHelper.ProviderFactory.CreateParameter();
             paramNume.ParameterName = "@nume";
@@ -70,7 +70,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
         internal void UpdateElev(int elevID, string nume, string prenume, string user, string parola)
         {
-            DbParameter[] paramList = new DbParameter[1];
+            DbParameter[] paramList = new DbParameter[5];
             
             DbParameter paramIdElev = DALHelper.ProviderFactory.CreateParameter();
             paramIdElev.ParameterName = "@elevID";
@@ -109,14 +109,16 @@ namespace PlatformaEducationala.DataAccessLayer
             DbParameter paramIdElev = DALHelper.ProviderFactory.CreateParameter();
             paramIdElev.ParameterName = "@elevID";
             paramIdElev.Value = elevID;
-            
+
+            paramList[0] = paramIdElev;
+
             db.ExecuteNonQuery(DALHelper.Connection, "DeleteElev", paramList);
             
         }
 
         internal void AsocElevClasa(int elevID,int clasaID)
         {
-            DbParameter[] paramList = new DbParameter[1];
+            DbParameter[] paramList = new DbParameter[2];
 
             DbParameter paramIdElev = DALHelper.ProviderFactory.CreateParameter();
             paramIdElev.ParameterName = "@elevID";
@@ -133,7 +135,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
         }
 
-        public DataSet GetEleviByClasaId(int clasaID)
+        public DataTable GetEleviByClasaId(int clasaID)
         {
             DbParameter[] paramList = new DbParameter[1];
 
@@ -141,7 +143,7 @@ namespace PlatformaEducationala.DataAccessLayer
             paramIdClasa.ParameterName = "@clasaID";
             paramIdClasa.Value = clasaID;
 
-            paramList[1] = paramIdClasa;
+            paramList[0] = paramIdClasa;
             
             return db.ExecuteDataSet(DALHelper.Connection, "GetEleviByClasaId", paramList);
             

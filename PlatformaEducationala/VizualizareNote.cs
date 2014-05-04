@@ -11,20 +11,20 @@ namespace PlatformaEducationala
 {
     public partial class VizualizareNote : Form
     {
-        public VizualizareNote(DataSet listaNote)
+        public VizualizareNote(DataTable listaNote)
         {
             InitializeComponent();
             Afiseaza(listaNote);
         }
 
-        private void Afiseaza(DataSet listaNote)
+        private void Afiseaza(DataTable listaNote)
         {
-            for (int i = 0; i < listaNote.Tables[0].Rows.Count; i++)
+            for (int i = 0; i < listaNote.Rows.Count; i++)
             {
-                if (listaNote.Tables[0].Rows[i]["nota"].ToString() != null)
+                if (listaNote.Rows[i]["nota"].ToString() != null)
                 {
-                    String nota = "Nota: " + listaNote.Tables[0].Rows[i]["nota"].ToString() + " Data: "
-                                     + listaNote.Tables[0].Rows[i]["data_nota"].ToString();
+                    String nota = "Nota: " + listaNote.Rows[i]["nota"].ToString() + " Data: "
+                                     + listaNote.Rows[i]["data_nota"].ToString();
                     listBoxNoteVizualizare.Items.Add(nota);
                 }
             }

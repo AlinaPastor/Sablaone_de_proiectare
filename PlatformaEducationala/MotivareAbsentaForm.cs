@@ -25,7 +25,7 @@ namespace PlatformaEducationala
             comboBoxListaAbsenteMotivare.DisplayMember = "data_absenta";
             comboBoxListaAbsenteMotivare.ValueMember = "id_absenta";
             //labelMotivareAbsenta.Text = comboBoxListaAbsenteMotivare.SelectedValue.ToString(); 
-            comboBoxListaAbsenteMotivare.DataSource = absBL.GetAbsenteByIDuri(semID, elevID, materieID).Tables[0];
+            comboBoxListaAbsenteMotivare.DataSource = absBL.GetAbsenteByIDuri(semID, elevID, materieID).Rows;
         }
         
 
@@ -38,8 +38,8 @@ namespace PlatformaEducationala
         {
             AbsentaBL a = new AbsentaBL();
             int idAbs = int.Parse(comboBoxListaAbsenteMotivare.SelectedValue.ToString());
-            DataSet m = a.GetMotivabilitateById(idAbs);
-            bool motivabila = bool.Parse(m.Tables[0].Rows[0]["motivabila"].ToString());
+            DataTable m = a.GetMotivabilitateById(idAbs);
+            bool motivabila = bool.Parse(m.Rows[0]["motivabila"].ToString());
             if (motivabila == true)
             {
                 a.MotivareAbsenta(idAbs);

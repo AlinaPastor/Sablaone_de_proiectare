@@ -10,12 +10,12 @@ namespace PlatformaEducationala.BusinessLogicLayer
     class ClasaBL
     {
         ClasaDAL clasaDAL = new ClasaDAL();
-        public DataSet GetClase()
+        public DataTable GetClase()
         {
             return clasaDAL.GetClase();
         }
 
-        public DataSet GetClasaById(int clasaID)
+        public DataTable GetClasaById(int clasaID)
         {
             return clasaDAL.GetClasaById(clasaID);
         }
@@ -52,7 +52,7 @@ namespace PlatformaEducationala.BusinessLogicLayer
             clasaDAL.AsocProfesorClasa(id_profesor, id_materie, id_clasa,teza);
         }
 
-        internal DataSet GetIdForProfMaterieClasaTeza(int id_profesor, int id_materie, int id_clasa, bool teza)
+        internal DataTable GetIdForProfMaterieClasaTeza(int id_profesor, int id_materie, int id_clasa, bool teza)
         {
             return clasaDAL.GetIdForProfMaterieClasaTeza( id_profesor, id_materie, id_clasa, teza);
         }
@@ -62,12 +62,12 @@ namespace PlatformaEducationala.BusinessLogicLayer
             clasaDAL.UpdateAsocProfesorClasa(id_prof_clasa, id_profesor);
         }
 
-        public DataSet GetClasaByProfMatId(int profID, int matID)
+        public DataTable GetClasaByProfMatId(int profID, int matID)
         {
             return clasaDAL.GetClasaByProfMatId(profID, matID);
         }
 
-        public DataSet VerifTeza( int matID, int clasaID)
+        public DataTable VerifTeza(int matID, int clasaID)
         {
             return clasaDAL.VerifTeza( matID, clasaID);
         }

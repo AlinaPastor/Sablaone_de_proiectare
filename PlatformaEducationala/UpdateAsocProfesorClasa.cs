@@ -25,7 +25,7 @@ namespace PlatformaEducationala
             MaterieBL materiiBL = new MaterieBL();
             comboBoxMateriiAsocPMCUp.DisplayMember = "nume_materie";
             comboBoxMateriiAsocPMCUp.ValueMember = "id_materie";
-            comboBoxMateriiAsocPMCUp.DataSource = materiiBL.GetMaterii().Tables[0];
+            comboBoxMateriiAsocPMCUp.DataSource = materiiBL.GetMaterii();
         }
 
         private void ListProfesori()
@@ -37,11 +37,11 @@ namespace PlatformaEducationala
           
             comboBoxProfiAsocPMCUp.DisplayMember = "nume_profesor";
             comboBoxProfiAsocPMCUp.ValueMember = "id_profesor";
-            comboBoxProfiAsocPMCUp.DataSource = profBL.GetProfesoriByMaterieId(id_materie).Tables[0];
+            comboBoxProfiAsocPMCUp.DataSource = profBL.GetProfesoriByMaterieId(id_materie).Rows;
 
             comboBoxProfiAsocPMCUpNew.DisplayMember = "nume_profesor";
             comboBoxProfiAsocPMCUpNew.ValueMember = "id_profesor";
-            comboBoxProfiAsocPMCUpNew.DataSource = profBL.GetProfesoriByMaterieId(id_materie).Tables[0];
+            comboBoxProfiAsocPMCUpNew.DataSource = profBL.GetProfesoriByMaterieId(id_materie).Rows;
         }
 
         private void ListClasa()
@@ -49,7 +49,7 @@ namespace PlatformaEducationala
             ClasaBL clasaBL = new ClasaBL();
             comboBoxClaseAsocPMCUp.DisplayMember = "nume_clasa";
             comboBoxClaseAsocPMCUp.ValueMember = "id_clasa";
-            comboBoxClaseAsocPMCUp.DataSource = clasaBL.GetClase().Tables[0];
+            comboBoxClaseAsocPMCUp.DataSource = clasaBL.GetClase();
         }
 
         private void buttonCancelAsocProfMatClasaUp_Click(object sender, EventArgs e)
@@ -69,15 +69,15 @@ namespace PlatformaEducationala
 
             int profIDNew = int.Parse(comboBoxProfiAsocPMCUpNew.SelectedValue.ToString());
 
-            DataSet id = clasaBL.GetIdForProfMaterieClasaTeza(profesorID, materieID, clasaID, teza);
+            DataTable id = clasaBL.GetIdForProfMaterieClasaTeza(profesorID, materieID, clasaID, teza);
 
             int prof_clasaID = 0;
             bool ok = false;
-            for (int i = 0; i < id.Tables[0].Rows.Count; i++)
+            for (int i = 0; i < id.Rows.Count; i++)
             {
-                if (id.Tables[0].Rows[i] != null)
+                if (id.Rows[i] != null)
                 {
-                    prof_clasaID = int.Parse(id.Tables[0].Rows[i][0].ToString());
+                    prof_clasaID = int.Parse(id.Rows[i][id.Columns[0]].ToString());
                     ok = true;
                 }
             }

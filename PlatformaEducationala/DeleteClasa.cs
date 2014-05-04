@@ -24,7 +24,7 @@ namespace PlatformaEducationala
             ClasaBL clasaBL = new ClasaBL();
             comboBoxDeleteClasa.DisplayMember = "nume_clasa";
             comboBoxDeleteClasa.ValueMember = "id_clasa";
-            comboBoxDeleteClasa.DataSource = clasaBL.GetClase().Tables[0];
+            comboBoxDeleteClasa.DataSource = clasaBL.GetClase();
         }
 
 

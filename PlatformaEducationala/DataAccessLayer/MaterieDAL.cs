@@ -48,7 +48,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
         internal void UpdateMaterie(int id_materie, string nume)
         {
-            DbParameter[] paramList = new DbParameter[1];
+            DbParameter[] paramList = new DbParameter[2];
 
             DbParameter paramIdMaterie = DALHelper.ProviderFactory.CreateParameter();
             paramIdMaterie.ParameterName = "@materieID";

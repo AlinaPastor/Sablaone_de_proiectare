@@ -24,7 +24,7 @@ namespace PlatformaEducationala
             ClasaBL clasaBL = new ClasaBL();
             comboBoxClaseAsoc.DisplayMember = "nume_clasa";
             comboBoxClaseAsoc.ValueMember = "id_clasa";
-            comboBoxClaseAsoc.DataSource = clasaBL.GetClase().Tables[0];
+            comboBoxClaseAsoc.DataSource = clasaBL.GetClase();
         }
 
         private void ListElevi()
@@ -32,7 +32,7 @@ namespace PlatformaEducationala
             ElevBL elevBL = new ElevBL();
             comboBoxEleviAsoc.DisplayMember = "nume_elev";
             comboBoxEleviAsoc.ValueMember = "id_elev";
-            comboBoxEleviAsoc.DataSource = elevBL.GetEleviFaraClasa().Tables[0];
+            comboBoxEleviAsoc.DataSource = elevBL.GetEleviFaraClasa();
         }
 
         private void buttonCancelAsocClasaElev_Click(object sender, EventArgs e)

@@ -24,7 +24,8 @@ namespace PlatformaEducationala
             MaterieBL materieBL = new MaterieBL();
             comboBoxDeleteMaterii.DisplayMember = "nume_materie";
             comboBoxDeleteMaterii.ValueMember = "id_materie";
-            comboBoxDeleteMaterii.DataSource = materieBL.GetMaterii().Tables[0];
+            comboBoxDeleteMaterii.DataSource = materieBL.GetMaterii();
+
         }
 
         private void buttonDeleteMaterie_Click(object sender, EventArgs e)

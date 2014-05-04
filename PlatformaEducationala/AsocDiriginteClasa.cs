@@ -24,7 +24,7 @@ namespace PlatformaEducationala
             ClasaBL clasaBL = new ClasaBL();
             comboBoxClaseAsoc.DisplayMember = "nume_clasa";
             comboBoxClaseAsoc.ValueMember = "id_clasa";
-            comboBoxClaseAsoc.DataSource = clasaBL.GetClase().Tables[0];
+            comboBoxClaseAsoc.DataSource = clasaBL.GetClase();
         }
 
         private void ListProfesori()
@@ -32,7 +32,7 @@ namespace PlatformaEducationala
             ProfesorBL profBL = new ProfesorBL();
             comboBoxProfiAsoc.DisplayMember = "nume_profesor";
             comboBoxProfiAsoc.ValueMember = "id_profesor";
-            comboBoxProfiAsoc.DataSource = profBL.GetProfesori().Tables[0];
+            comboBoxProfiAsoc.DataSource = profBL.GetProfesori();
         }
 
         private void buttonAsociereClasaDirig_Click(object sender, EventArgs e)

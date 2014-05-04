@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace PlatformaEducationala.DataAccessLayer
 {
@@ -69,7 +70,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
             DbParameter paramAnStudiuId = DALHelper.ProviderFactory.CreateParameter();
             paramAnStudiuId.ParameterName = "@an_studiuID";
-            paramAnStudiuId.Value = id_an_studiu;
+            paramAnStudiuId.Value = an_studiuID;
 
             paramList[0] = paramAnStudiuId;
 

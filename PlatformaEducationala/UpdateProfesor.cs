@@ -22,11 +22,16 @@ namespace PlatformaEducationala
         {
             int profesorID = int.Parse(comboBoxProfiUpdate.SelectedValue.ToString());
             ProfesorBL profesorBL = new ProfesorBL();
-            DataSet ds = profesorBL.GetProfesoriById(profesorID);
-            textBoxNumeProf.Text = ds.Tables[0].Rows[0]["nume_profesor"].ToString();
-            textBoxPrenumeProf.Text = ds.Tables[0].Rows[0]["prenume_profesor"].ToString();
-            textBoxUserProf.Text = ds.Tables[0].Rows[0]["user_profesor"].ToString();
-            textBoxParolaProf.Text = ds.Tables[0].Rows[0]["parola_profesor"].ToString();
+            DataTable ds = profesorBL.GetProfesoriById(profesorID);
+            
+            if (ds.Rows.Count > 0)
+            {
+                textBoxNumeProf.Text = ds.Rows[0]["nume_profesor"].ToString();
+                textBoxPrenumeProf.Text = ds.Rows[0]["prenume_profesor"].ToString();
+                textBoxUserProf.Text = ds.Rows[0]["user_profesor"].ToString();
+                textBoxParolaProf.Text = ds.Rows[0]["parola_profesor"].ToString();
+            }
+         
         }
 
         private void ListProfesori()
@@ -34,7 +39,7 @@ namespace PlatformaEducationala
             ProfesorBL profesorBL = new ProfesorBL();
             comboBoxProfiUpdate.DisplayMember = "nume_profesor";
             comboBoxProfiUpdate.ValueMember = "id_profesor";
-            comboBoxProfiUpdate.DataSource = profesorBL.GetProfesori().Tables[0];
+            comboBoxProfiUpdate.DataSource = profesorBL.GetProfesori();
         }
 
         private void comboBoxProfiUpdate_SelectedIndexChanged(object sender, EventArgs e)

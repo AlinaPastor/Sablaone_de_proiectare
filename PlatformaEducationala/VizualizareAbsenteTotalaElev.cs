@@ -11,19 +11,19 @@ namespace PlatformaEducationala
 {
     public partial class VizualizareAbsenteTotalaElev : Form
     {
-        public VizualizareAbsenteTotalaElev(DataSet absente)
+        public VizualizareAbsenteTotalaElev(DataTable absente)
         {
             InitializeComponent();
             Afiseaza(absente);
         }
 
-        private void Afiseaza(DataSet listaAbs)
+        private void Afiseaza(DataTable listaAbs)
         {
-            for (int i = 0; i < listaAbs.Tables[0].Rows.Count; i++)
+            for (int i = 0; i < listaAbs.Rows.Count; i++)
             {
-                String absenta = "Data: " + listaAbs.Tables[0].Rows[i]["data_absenta"].ToString() + " Motivata: "
-                                 + listaAbs.Tables[0].Rows[i]["motivata"].ToString() + " Motivabila: "
-                                 + listaAbs.Tables[0].Rows[i]["motivabila"].ToString();
+                String absenta = "Data: " + listaAbs.Rows[i]["data_absenta"].ToString() + " Motivata: "
+                                 + listaAbs.Rows[i]["motivata"].ToString() + " Motivabila: "
+                                 + listaAbs.Rows[i]["motivabila"].ToString();
                 listBoxAbsenteVizualizare.Items.Add(absenta);
             }
         }

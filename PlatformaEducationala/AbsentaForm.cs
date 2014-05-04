@@ -30,7 +30,7 @@ namespace PlatformaEducationala
             SemestruBL semBL = new SemestruBL();
             comboBoxAbsentaSem.DisplayMember = "nr_semestru";
             comboBoxAbsentaSem.ValueMember = "id_semestru";
-            comboBoxAbsentaSem.DataSource = semBL.GetSemestre().Tables[0];
+            comboBoxAbsentaSem.DataSource = semBL.GetSemestre();
         }
 
         private void ListMaterii()
@@ -40,7 +40,7 @@ namespace PlatformaEducationala
             {
                 comboBoxAbsentaMaterie.DisplayMember = "nume_materie";
                 comboBoxAbsentaMaterie.ValueMember = "id_materie";
-                comboBoxAbsentaMaterie.DataSource = materiiBL.GetMaterieByProfId(id_prof_logat).Tables[0];
+                comboBoxAbsentaMaterie.DataSource = materiiBL.GetMaterieByProfId(id_prof_logat);
             }
             catch (Exception e)
             {
@@ -56,7 +56,7 @@ namespace PlatformaEducationala
                 ClasaBL clasaBL = new ClasaBL();
                 comboBoxAbsentaClasa.DisplayMember = "nume_clasa";
                 comboBoxAbsentaClasa.ValueMember = "id_clasa";
-                comboBoxAbsentaClasa.DataSource = clasaBL.GetClasaByProfMatId(id_prof_logat, materieID).Tables[0];
+                comboBoxAbsentaClasa.DataSource = clasaBL.GetClasaByProfMatId(id_prof_logat, materieID);
             }
             catch (Exception e)
             {
@@ -74,7 +74,7 @@ namespace PlatformaEducationala
 
                 comboBoxAbsentaElev.DisplayMember = "nume_elev";
                 comboBoxAbsentaElev.ValueMember = "id_elev";
-                comboBoxAbsentaElev.DataSource = elevBL.GetEleviByClasaId(clasaID).Tables[0];
+                comboBoxAbsentaElev.DataSource = elevBL.GetEleviByClasaId(clasaID);
             }
             catch (Exception e)
             {
@@ -96,7 +96,7 @@ namespace PlatformaEducationala
             int elevID = int.Parse(comboBoxAbsentaElev.SelectedValue.ToString());
             int materieID = int.Parse(comboBoxAbsentaMaterie.SelectedValue.ToString());
             AbsentaBL absBl = new AbsentaBL();
-            DataSet listaAbs = absBl.GetAbsenteByIDuri(semID, elevID, materieID);
+            DataTable listaAbs = absBl.GetAbsenteByIDuri(semID, elevID, materieID);
             VizualizareAbsente viz = new VizualizareAbsente(listaAbs);
             viz.ShowDialog();
             viz.Dispose();
@@ -132,7 +132,7 @@ namespace PlatformaEducationala
             int clasaID = int.Parse(comboBoxAbsentaClasa.SelectedValue.ToString());
            
             AbsentaBL absBl = new AbsentaBL();
-            DataSet numarAbs = absBl.GetAbsenteClasa(clasaID);
+            DataTable numarAbs = absBl.GetAbsenteClasa(clasaID);
             TotalAbsClasa viz = new TotalAbsClasa(numarAbs);
             viz.ShowDialog();
             viz.Dispose();
@@ -143,7 +143,7 @@ namespace PlatformaEducationala
             int clasaID = int.Parse(comboBoxAbsentaClasa.SelectedValue.ToString());
 
             AbsentaBL absBl = new AbsentaBL();
-            DataSet numarAbs = absBl.GetAbsenteClasaNemotivate(clasaID);
+            DataTable numarAbs = absBl.GetAbsenteClasaNemotivate(clasaID);
             TotalAbsClasa viz = new TotalAbsClasa(numarAbs);
             viz.ShowDialog();
             viz.Dispose();

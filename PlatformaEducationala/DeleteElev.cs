@@ -23,7 +23,7 @@ namespace PlatformaEducationala
             ElevBL elevBL = new ElevBL();
             comboBoxDeleteElev.DisplayMember = "nume_elev";
             comboBoxDeleteElev.ValueMember = "id_elev";
-            comboBoxDeleteElev.DataSource = elevBL.GetElevi().Tables[0];
+            comboBoxDeleteElev.DataSource = elevBL.GetElevi();
         }
 
 

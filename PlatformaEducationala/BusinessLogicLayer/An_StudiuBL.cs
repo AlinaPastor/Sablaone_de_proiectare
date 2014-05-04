@@ -11,12 +11,12 @@ namespace PlatformaEducationala.BusinessLogicLayer
     {
 
        An_StudiuDAL anDAL = new An_StudiuDAL();
-        public DataSet GetAni_Studiu()
+        public DataTable GetAni_Studiu()
         {
             return anDAL.GetAni_Studiu();
         }
 
-        public DataSet GetAn_StudiuById(int anID)
+        public DataTable GetAn_StudiuById(int anID)
         {
             return anDAL.GetAn_StudiuById(anID);
         }

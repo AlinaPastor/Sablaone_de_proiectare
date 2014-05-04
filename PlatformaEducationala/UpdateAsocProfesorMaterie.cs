@@ -24,7 +24,7 @@ namespace PlatformaEducationala
             MaterieBL materiiBL = new MaterieBL();
             comboBoxMateriiAsocUp.DisplayMember = "nume_materie";
             comboBoxMateriiAsocUp.ValueMember = "id_materie";
-            comboBoxMateriiAsocUp.DataSource = materiiBL.GetMaterii().Tables[0];
+            comboBoxMateriiAsocUp.DataSource = materiiBL.GetMaterii();
         }
 
         private void ListProfesori()
@@ -32,11 +32,11 @@ namespace PlatformaEducationala
             ProfesorBL profBL = new ProfesorBL();
             comboBoxProfiAsocUp.DisplayMember = "nume_profesor";
             comboBoxProfiAsocUp.ValueMember = "id_profesor";
-            comboBoxProfiAsocUp.DataSource = profBL.GetProfesori().Tables[0];
+            comboBoxProfiAsocUp.DataSource = profBL.GetProfesori();
 
             comboBoxUpdateAsocProf.DisplayMember = "nume_profesor";
             comboBoxUpdateAsocProf.ValueMember = "id_profesor";
-            comboBoxUpdateAsocProf.DataSource = profBL.GetProfesori().Tables[0];
+            comboBoxUpdateAsocProf.DataSource = profBL.GetProfesori();
 
         }
 
@@ -47,14 +47,14 @@ namespace PlatformaEducationala
             int materieID = int.Parse(comboBoxMateriiAsocUp.SelectedValue.ToString());
             int profesorID = int.Parse(comboBoxProfiAsocUp.SelectedValue.ToString());
             int profIDNew = int.Parse(comboBoxUpdateAsocProf.SelectedValue.ToString());
-            DataSet id = profBL.GetIdForProfMaterie(materieID, profesorID);
+            DataTable id = profBL.GetIdForProfMaterie(materieID, profesorID);
             int prof_materieID = 0;
             bool ok = false;
-            for (int i = 0; i < id.Tables[0].Rows.Count; i++)
+            for (int i = 0; i < id.Rows.Count; i++)
             {
-                if (id.Tables[0].Rows[i] != null)
+                if (id.Rows[i] != null)
                 {
-                    prof_materieID = int.Parse(id.Tables[0].Rows[i][0].ToString());
+                    prof_materieID = int.Parse(id.Rows[i][id.Columns[0]].ToString());
                     ok = true;
                 }
             }
@@ -72,6 +72,11 @@ namespace PlatformaEducationala
         private void buttonCancelAsocUpMateriiProfesori_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void UpdateAsocProfesorMaterie_Load(object sender, EventArgs e)
+        {
+
         }
 
        

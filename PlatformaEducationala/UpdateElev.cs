@@ -22,11 +22,11 @@ namespace PlatformaEducationala
         {
             int elevID = int.Parse(comboBoxElevUpdate.SelectedValue.ToString());
             ElevBL elevBL = new ElevBL();
-            DataSet ds = elevBL.GetEleviById(elevID);
-            textBoxNumeElev.Text = ds.Tables[0].Rows[0]["nume_elev"].ToString();
-            textBoxPrenumeElev.Text = ds.Tables[0].Rows[0]["prenume_elev"].ToString();
-            textBoxUserElev.Text = ds.Tables[0].Rows[0]["user_elev"].ToString();
-            textBoxParolaElev.Text = ds.Tables[0].Rows[0]["parola_elev"].ToString();
+            DataTable ds = elevBL.GetEleviById(elevID);
+            textBoxNumeElev.Text = ds.Rows[0]["nume_elev"].ToString();
+            textBoxPrenumeElev.Text = ds.Rows[0]["prenume_elev"].ToString();
+            textBoxUserElev.Text = ds.Rows[0]["user_elev"].ToString();
+            textBoxParolaElev.Text = ds.Rows[0]["parola_elev"].ToString();
         }
 
         private void ListElevi()
@@ -34,7 +34,7 @@ namespace PlatformaEducationala
             ElevBL elevBL = new ElevBL();
             comboBoxElevUpdate.DisplayMember = "nume_elev";
             comboBoxElevUpdate.ValueMember = "id_elev";
-            comboBoxElevUpdate.DataSource = elevBL.GetElevi().Tables[0];
+            comboBoxElevUpdate.DataSource = elevBL.GetElevi();
         }
 
         private void buttonCancelProf_Click(object sender, EventArgs e)

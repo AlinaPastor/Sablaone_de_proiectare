@@ -134,6 +134,7 @@
             this.Controls.Add(this.comboBoxMateriiAsocUp);
             this.Name = "UpdateAsocProfesorMaterie";
             this.Text = "UpdateAsocProfesorMaterie";
+            this.Load += new System.EventHandler(this.UpdateAsocProfesorMaterie_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

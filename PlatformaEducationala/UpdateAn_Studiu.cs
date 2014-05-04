@@ -22,8 +22,8 @@ namespace PlatformaEducationala
         {
             int anID = int.Parse(comboBoxAnStudiuUpdate.SelectedValue.ToString());
             An_StudiuBL anBL = new An_StudiuBL();
-            DataSet ds = anBL.GetAn_StudiuById(anID);
-            textBoxAn_AnStudiu.Text = ds.Tables[0].Rows[0]["an"].ToString();
+            DataTable ds = anBL.GetAn_StudiuById(anID);
+            textBoxAn_AnStudiu.Text = ds.Rows[0]["an"].ToString();
 
         }
 
@@ -32,7 +32,7 @@ namespace PlatformaEducationala
             An_StudiuBL anBL = new An_StudiuBL();
             comboBoxAnStudiuUpdate.DisplayMember = "an";
             comboBoxAnStudiuUpdate.ValueMember = "id_an_studiu";
-            comboBoxAnStudiuUpdate.DataSource = anBL.GetAni_Studiu().Tables[0];
+            comboBoxAnStudiuUpdate.DataSource = anBL.GetAni_Studiu();
         }
 
         private void comboBoxAnStudiuUpdate_SelectedIndexChanged(object sender, EventArgs e)

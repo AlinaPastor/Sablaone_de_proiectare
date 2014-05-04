@@ -11,7 +11,7 @@ namespace PlatformaEducationala.BusinessLogicLayer
     {
         MedieSemestruDAL medDAL = new MedieSemestruDAL();
 
-        public DataSet GetMedieSemIDuri(int id_sem, int id_elev, int id_materie)
+        public DataTable GetMedieSemIDuri(int id_sem, int id_elev, int id_materie)
         {
             return medDAL.GetMedieSemByIDuri(id_sem, id_elev, id_materie);
         }

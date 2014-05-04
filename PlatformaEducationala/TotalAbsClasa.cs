@@ -11,17 +11,17 @@ namespace PlatformaEducationala
 {
     public partial class TotalAbsClasa : Form
     {
-        public TotalAbsClasa(DataSet nrAbs)
+        public TotalAbsClasa(DataTable nrAbs)
         {
             InitializeComponent();
             Afiseaza( nrAbs);
         }
 
 
-        private void Afiseaza(DataSet nrAbs)
+        private void Afiseaza(DataTable nrAbs)
         {
 
-            labelNrAbsCls.Text = nrAbs.Tables[0].Rows[0][0].ToString();
+            labelNrAbsCls.Text = nrAbs.Rows[0][nrAbs.Columns[0]].ToString();
         }
 
         private void buttonCancelVizAbs_Click(object sender, EventArgs e)

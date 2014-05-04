@@ -23,7 +23,7 @@ namespace PlatformaEducationala
             ProfesorBL profesorBL = new ProfesorBL();
             comboBoxDeleteProf.DisplayMember = "nume_profesor";
             comboBoxDeleteProf.ValueMember = "id_profesor";
-            comboBoxDeleteProf.DataSource = profesorBL.GetProfesori().Tables[0];
+            comboBoxDeleteProf.DataSource = profesorBL.GetProfesori();
         }
 
         private void buttonDeleteProf_Click(object sender, EventArgs e)
