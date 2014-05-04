@@ -12,25 +12,24 @@ namespace PlatformaEducationala.DataAccessLayer
 {
     class DatabaseAccess
     {
-        public void ExecuteNonQuery(SqlConnection conn, String storedProcedureName, SqlParameter[] paramsList)
+        public void ExecuteNonQuery(IDbConnection conn, String storedProcedureName, DbParameter[] paramsList)
         {
-            try
+            using (IDbCommand command = conn.CreateCommand())
             {
-                SqlCommand cmd = new SqlCommand(storedProcedureName, conn);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = storedProcedureName;
+                conn.Open();
+
                 if (paramsList != null)
                 {
                     foreach (SqlParameter param in paramsList)
                     {
-                        cmd.Parameters.Add(param);
+                        command.Parameters.Add(param);
                     }
                 }
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            finally
-            {
-                conn.Close();
+
+                // se executa procedura
+                IDataReader reader = command.ExecuteReader();
             }
         }
         public DataTable ExecuteDataSet(IDbConnection conn, String storedProcedureName, DbParameter[] paramsList)

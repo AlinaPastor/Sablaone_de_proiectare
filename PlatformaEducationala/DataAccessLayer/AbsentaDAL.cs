@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace PlatformaEducationala.DataAccessLayer
 {
@@ -11,112 +12,138 @@ namespace PlatformaEducationala.DataAccessLayer
     {
         DatabaseAccess db = new DatabaseAccess();
 
-        public DataSet GetAbsenteByIDuri(int id_sem, int id_elev, int id_materie)
+        public DataTable GetAbsenteByIDuri(int id_sem, int id_elev, int id_materie)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                 new SqlParameter("@semestruID", id_sem),
-                 new SqlParameter("@elevID",id_elev),
-                 new SqlParameter("@materieID",id_materie )
-            };
+            DbParameter[] paramList = new DbParameter[3];
+
+            DbParameter paramSem = DALHelper.ProviderFactory.CreateParameter();
+            paramSem.ParameterName = "@semestruID";
+            paramSem.Value = id_sem;
+
+            DbParameter paramElev = DALHelper.ProviderFactory.CreateParameter();
+            paramElev.ParameterName = "@elevID";
+            paramElev.Value = id_elev;
+
+            DbParameter paramMaterie = DALHelper.ProviderFactory.CreateParameter();
+            paramMaterie.ParameterName = "@materieID";
+            paramMaterie.Value = id_materie;
+
+            paramList[0] = paramSem;
+            paramList[1] = paramElev;
+            paramList[2] = paramMaterie;
+
             return db.ExecuteDataSet(DALHelper.Connection, "GetAbsenteByIDuri", paramList);
-             */
-            return null;
         }
 
-        public DataSet GetAbsenteByIDElev(int id_elev)
+        public DataTable GetAbsenteByIDElev(int id_elev)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                
-                 new SqlParameter("@elevID",id_elev)
-            };
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramElev = DALHelper.ProviderFactory.CreateParameter();
+            paramElev.ParameterName = "@elevID";
+            paramElev.Value = id_elev;
+
+            paramList[0] = paramElev;
+            
             return db.ExecuteDataSet(DALHelper.Connection, "GetAbsenteByIDElev", paramList);
-             */
-            return null;
         }
 
-        public DataSet GetAbsenteNemotivateByIDElev(int id_elev)
+        public DataTable GetAbsenteNemotivateByIDElev(int id_elev)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                
-                 new SqlParameter("@elevID",id_elev)
-            };
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramElev = DALHelper.ProviderFactory.CreateParameter();
+            paramElev.ParameterName = "@elevID";
+            paramElev.Value = id_elev;
+
+            paramList[0] = paramElev;
+
             return db.ExecuteDataSet(DALHelper.Connection, "GetAbsenteNemotivateByIDElev", paramList);
-             */
-            return null;
         }
 
-        public DataSet GetAbsenteClasa(int id_clasa)
+        public DataTable GetAbsenteClasa(int id_clasa)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-          
-                 new SqlParameter("@clasaID",id_clasa )
-            };
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramClasa = DALHelper.ProviderFactory.CreateParameter();
+            paramClasa.ParameterName = "@clasaID";
+            paramClasa.Value = id_clasa;
+
+            paramList[0] = paramClasa;
+       
             return db.ExecuteDataSet(DALHelper.Connection, "GetAbsenteClasa", paramList);
-             */
-            return null;
         }
 
-        public DataSet GetAbsenteClasaNemotivate(int id_clasa)
+        public DataTable GetAbsenteClasaNemotivate(int id_clasa)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-          
-                 new SqlParameter("@clasaID",id_clasa )
-            };
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramClasa = DALHelper.ProviderFactory.CreateParameter();
+            paramClasa.ParameterName = "@clasaID";
+            paramClasa.Value = id_clasa;
+
+            paramList[0] = paramClasa;
+           
             return db.ExecuteDataSet(DALHelper.Connection, "GetAbsenteClasaNemotivate", paramList);
-             */
-            return null;
+           
         } 
         internal void AddAbsenta(int id_sem, int id_elev, int id_materie, bool motivata, bool motivabila)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                
-                new SqlParameter("@semestruID", id_sem),
-                new SqlParameter("@elevID", id_elev),
-                new SqlParameter("@materieID", id_materie),
-                new SqlParameter("@motivata",motivata),
-                new SqlParameter("@motivabila",motivabila)
+            DbParameter[] paramList = new DbParameter[5];
 
-            };
+            DbParameter paramElev = DALHelper.ProviderFactory.CreateParameter();
+            paramElev.ParameterName = "@elevID";
+            paramElev.Value = id_elev;
+
+            DbParameter paramSem = DALHelper.ProviderFactory.CreateParameter();
+            paramSem.ParameterName = "@semestruID";
+            paramSem.Value = id_sem;
+
+            DbParameter paramMaterie = DALHelper.ProviderFactory.CreateParameter();
+            paramMaterie.ParameterName = "@materieID";
+            paramMaterie.Value = id_materie;
+
+            DbParameter paramMotivata = DALHelper.ProviderFactory.CreateParameter();
+            paramMotivata.ParameterName = "@motivata";
+            paramMotivata.Value = motivata;
+
+            DbParameter paramMotivabila = DALHelper.ProviderFactory.CreateParameter();
+            paramMotivabila.ParameterName = "@motivabila";
+            paramMotivabila.Value = motivabila;
+
+            paramList[0] = paramElev;
+            paramList[1] = paramSem;
+            paramList[2] = paramMaterie;
+            paramList[3] = paramMotivata;
+            paramList[4] = paramMotivabila;
+
             db.ExecuteNonQuery(DALHelper.Connection, "AddAbsenta", paramList);
-             */
         }
 
         internal void MotivareAbsenta(int id_absenta)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@absentaID", id_absenta)
-               
+            DbParameter[] paramList = new DbParameter[1];
 
-            };
+            DbParameter paramAbsenta = DALHelper.ProviderFactory.CreateParameter();
+            paramAbsenta.ParameterName = "@absentaID";
+            paramAbsenta.Value = id_absenta;
+
+            paramList[0] = paramAbsenta;
+
             db.ExecuteNonQuery(DALHelper.Connection, "MotivareAbsenta", paramList);
-             */
         }
 
-        public DataSet GetMotivabilitateById(int id_absenta)
+        public DataTable GetMotivabilitateById(int id_absenta)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                 new SqlParameter("@absentaID", id_absenta)
-                
-            };
+             DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramAbsenta = DALHelper.ProviderFactory.CreateParameter();
+            paramAbsenta.ParameterName = "@absentaID";
+            paramAbsenta.Value = id_absenta;
+
+            paramList[0] = paramAbsenta;
+
             return db.ExecuteDataSet(DALHelper.Connection, "GetMotivabilitateById", paramList);
-             */
-            return null;
         }
 
     }

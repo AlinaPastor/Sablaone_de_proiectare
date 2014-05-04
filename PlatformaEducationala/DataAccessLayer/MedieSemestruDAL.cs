@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace PlatformaEducationala.DataAccessLayer
 {
@@ -12,28 +13,54 @@ namespace PlatformaEducationala.DataAccessLayer
         DatabaseAccess db = new DatabaseAccess();
         public DataSet GetMedieSemByIDuri(int id_sem, int id_elev, int id_materie)
         {
-         /*   SqlParameter[] paramList = new SqlParameter[]
-            {
-                 new SqlParameter("@semestruID", id_sem),
-                 new SqlParameter("@elevID",id_elev),
-                 new SqlParameter("@materieID",id_materie )
-            };
-            return db.ExecuteDataSet(DALHelper.Connection, "GetMedieSemByIDuri", paramList);*/
-            return null;
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramIdSem = DALHelper.ProviderFactory.CreateParameter();
+            paramIdSem.ParameterName = "@semestruID";
+            paramIdSem.Value = id_sem;
+
+            DbParameter paramIdElev = DALHelper.ProviderFactory.CreateParameter();
+            paramIdElev.ParameterName = "@elevID";
+            paramIdElev.Value = id_elev;
+
+            DbParameter paramIdMaterie = DALHelper.ProviderFactory.CreateParameter();
+            paramIdMaterie.ParameterName = "@materieID";
+            paramIdMaterie.Value = id_materie;
+
+            paramList[0] = paramIdSem;
+            paramList[1] = paramIdElev;
+            paramList[2] = paramIdMaterie;
+
+            return db.ExecuteDataSet(DALHelper.Connection, "GetMedieSemByIDuri", paramList);
         }
 
         internal void AddMedie(int id_elev, int id_materie, int id_sem, int media)
         {
-            /*SqlParameter[] paramList = new SqlParameter[]
-            {
-                
-                new SqlParameter("@semestruID", id_sem),
-                new SqlParameter("@elevID", id_elev),
-                new SqlParameter("@materieID", id_materie),
-                 new SqlParameter("@medie",media)
+            DbParameter[] paramList = new DbParameter[1];
 
-            };
-            db.ExecuteNonQuery(DALHelper.Connection, "AddMedie", paramList);*/
+            DbParameter paramIdElev = DALHelper.ProviderFactory.CreateParameter();
+            paramIdElev.ParameterName = "@elevID";
+            paramIdElev.Value = id_elev;
+
+            DbParameter paramIdMaterie = DALHelper.ProviderFactory.CreateParameter();
+            paramIdMaterie.ParameterName = "@materieID";
+            paramIdMaterie.Value = id_materie;
+
+            DbParameter paramIdSem = DALHelper.ProviderFactory.CreateParameter();
+            paramIdSem.ParameterName = "@semestruID";
+            paramIdSem.Value = id_sem;
+
+            DbParameter paramMedia = DALHelper.ProviderFactory.CreateParameter();
+            paramMedia.ParameterName = "@medie";
+            paramMedia.Value = media;
+
+            
+            paramList[0] = paramIdElev;
+            paramList[1] = paramIdMaterie;
+            paramList[3] = paramIdSem;
+            paramList[4] = paramMedia;
+
+            db.ExecuteNonQuery(DALHelper.Connection, "AddMedie", paramList);
         }
     }
 }
