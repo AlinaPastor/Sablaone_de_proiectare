@@ -15,12 +15,12 @@ namespace PlatformaEducationala.BusinessLogicLayer
             return profesorDAL.GetProfesori();
         }
 
-        public DataSet GetProfesoriById(int profesorID)
+        public DataTable GetProfesoriById(int profesorID)
         {
             return profesorDAL.GetProfesoriById(profesorID);
         }
 
-        public DataSet GetProfesoriByMaterieId(int materieID)
+        public DataTable GetProfesoriByMaterieId(int materieID)
         {
             return profesorDAL.GetProfesoriByMaterieId(materieID);
         }
@@ -46,7 +46,7 @@ namespace PlatformaEducationala.BusinessLogicLayer
             profesorDAL.AsocProfesorMaterie(profesorID, materieID);
         }
 
-        internal DataSet GetIdForProfMaterie(int materieID, int profesorID)
+        internal DataTable GetIdForProfMaterie(int materieID, int profesorID)
         {
             return profesorDAL.GetIdForProfMaterie( materieID, profesorID);
         }

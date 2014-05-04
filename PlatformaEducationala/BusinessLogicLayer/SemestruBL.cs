@@ -10,12 +10,13 @@ namespace PlatformaEducationala.BusinessLogicLayer
     class SemestruBL
     {
         SemestruDAL semDAL = new SemestruDAL();
-        public DataSet GetSemestre()
+
+        public DataTable GetSemestre()
         {
             return semDAL.GetSemestre();
         }
 
-        public DataSet GetSemestruById(int semID)
+        public DataTable GetSemestruById(int semID)
         {
             return semDAL.GetSemestruById(semID);
         }

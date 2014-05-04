@@ -11,17 +11,17 @@ namespace PlatformaEducationala.BusinessLogicLayer
     {
         NotaDAL notaDAL = new NotaDAL();
 
-        public DataSet GetNoteByIDuri(int id_elev, int id_materie, int id_sem)
+        public DataTable GetNoteByIDuri(int id_elev, int id_materie, int id_sem)
         {
             return notaDAL.GetNoteByIDuri(id_elev,  id_materie,  id_sem);
         }
 
-        public DataSet GetNoteByIDuri1(int id_elev, int id_materie, int id_sem)
+        public DataTable GetNoteByIDuri1(int id_elev, int id_materie, int id_sem)
         {
             return notaDAL.GetNoteByIDuri1(id_elev, id_materie, id_sem);
         }
 
-        public DataSet GetTezaByIDuri(int id_elev, int id_materie, int id_sem)
+        public DataTable GetTezaByIDuri(int id_elev, int id_materie, int id_sem)
         {
             return notaDAL.GetTezaByIDuri(id_elev, id_materie, id_sem);
         }
