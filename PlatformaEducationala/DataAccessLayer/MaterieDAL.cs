@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace PlatformaEducationala.DataAccessLayer
 {
@@ -11,72 +12,85 @@ namespace PlatformaEducationala.DataAccessLayer
     {
         DatabaseAccess db = new DatabaseAccess();
 
-        public DataSet GetMaterii()
+        public DataTable GetMaterii()
         {
-           // return db.ExecuteDataSet(DALHelper.Connection, "GetMaterii", null);
-            return null;
+            return db.ExecuteDataSet(DALHelper.Connection, "GetMaterii", null);
         }
 
-        public DataSet GetMaterieById(int materieID)
+        public DataTable GetMaterieById(int materieID)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@materieID",materieID )
-            };
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramIdMaterie = DALHelper.ProviderFactory.CreateParameter();
+            paramIdMaterie.ParameterName = "@materieID";
+            paramIdMaterie.Value = materieID;
+
+
+            paramList[0] = paramIdMaterie;
+
             return db.ExecuteDataSet(DALHelper.Connection, "GetMaterieById", paramList);
-             * */
-            return null;
+            
         }
 
         internal void AddMaterie(string nume)
         {
-           /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                
-                new SqlParameter("@nume", nume)
-            };
-            db.ExecuteNonQuery(DALHelper.Connection, "AddMaterie", paramList);
-            * */
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramNume = DALHelper.ProviderFactory.CreateParameter();
+            paramNume.ParameterName = "@nume";
+            paramNume.Value = nume;
+
+            paramList[0] = paramNume;
+
+            db.ExecuteNonQuery(DALHelper.Connection, "AddMaterie", paramList);  
         }
 
 
         internal void UpdateMaterie(int id_materie, string nume)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@materieID", id_materie),
-                new SqlParameter("@nume", nume)
-                
+            DbParameter[] paramList = new DbParameter[1];
 
-            };
+            DbParameter paramIdMaterie = DALHelper.ProviderFactory.CreateParameter();
+            paramIdMaterie.ParameterName = "@materieID";
+            paramIdMaterie.Value = id_materie;
+
+            DbParameter paramNume = DALHelper.ProviderFactory.CreateParameter();
+            paramNume.ParameterName = "@nume";
+            paramNume.Value = nume;
+
+            paramList[0] = paramIdMaterie;
+            paramList[1] = paramNume;
+
             db.ExecuteNonQuery(DALHelper.Connection, "UpdateMaterie", paramList);
-             * */
+            
         }
 
         internal void DeleteMaterie(int materieID)
         {
-           /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@materieID", materieID)
-            };
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramIdMaterie = DALHelper.ProviderFactory.CreateParameter();
+            paramIdMaterie.ParameterName = "@materieID";
+            paramIdMaterie.Value = materieID;
+
+            paramList[0] = paramIdMaterie;
+
             db.ExecuteNonQuery(DALHelper.Connection, "DeleteMaterie", paramList);
-            * */
+            
         }
 
-        public DataSet GetMaterieByProfId(int profID)
+        public DataTable GetMaterieByProfId(int profID)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@profesorID",profID )
-            };
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramIdProf = DALHelper.ProviderFactory.CreateParameter();
+            paramIdProf.ParameterName = "@profesorID";
+            paramIdProf.Value = profID;
+
+            paramList[0] = paramIdProf;
+
             return db.ExecuteDataSet(DALHelper.Connection, "GetMaterieByProfId", paramList);
-             * */
-            return null;
+
         }
     }
 }
