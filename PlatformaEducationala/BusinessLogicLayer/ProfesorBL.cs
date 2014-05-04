@@ -10,7 +10,7 @@ namespace PlatformaEducationala.BusinessLogicLayer
     class ProfesorBL
     {
         ProfesorDAL profesorDAL = new ProfesorDAL();
-        public DataSet GetProfesori()
+        public DataTable GetProfesori()
         {
             return profesorDAL.GetProfesori();
         }
