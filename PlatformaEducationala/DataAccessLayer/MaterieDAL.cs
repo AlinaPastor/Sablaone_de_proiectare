@@ -13,31 +13,38 @@ namespace PlatformaEducationala.DataAccessLayer
 
         public DataSet GetMaterii()
         {
-            return db.ExecuteDataSet(DALHelper.Connection, "GetMaterii", null);
+           // return db.ExecuteDataSet(DALHelper.Connection, "GetMaterii", null);
+            return null;
         }
 
         public DataSet GetMaterieById(int materieID)
         {
+            /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@materieID",materieID )
             };
             return db.ExecuteDataSet(DALHelper.Connection, "GetMaterieById", paramList);
+             * */
+            return null;
         }
 
         internal void AddMaterie(string nume)
         {
+           /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 
                 new SqlParameter("@nume", nume)
             };
             db.ExecuteNonQuery(DALHelper.Connection, "AddMaterie", paramList);
+            * */
         }
 
 
         internal void UpdateMaterie(int id_materie, string nume)
         {
+            /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@materieID", id_materie),
@@ -46,24 +53,30 @@ namespace PlatformaEducationala.DataAccessLayer
 
             };
             db.ExecuteNonQuery(DALHelper.Connection, "UpdateMaterie", paramList);
+             * */
         }
 
         internal void DeleteMaterie(int materieID)
         {
+           /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@materieID", materieID)
             };
             db.ExecuteNonQuery(DALHelper.Connection, "DeleteMaterie", paramList);
+            * */
         }
 
         public DataSet GetMaterieByProfId(int profID)
         {
+            /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@profesorID",profID )
             };
             return db.ExecuteDataSet(DALHelper.Connection, "GetMaterieByProfId", paramList);
+             * */
+            return null;
         }
     }
 }

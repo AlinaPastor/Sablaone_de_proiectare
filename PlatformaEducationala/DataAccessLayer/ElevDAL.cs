@@ -14,26 +14,32 @@ namespace PlatformaEducationala.DataAccessLayer
 
         public DataSet GetElevi()
         {
-            return db.ExecuteDataSet(DALHelper.Connection, "GetElevi", null);
+            //return db.ExecuteDataSet(DALHelper.Connection, "GetElevi", null);
+            return null;
         }
 
         public DataSet GetEleviFaraClasa()
         {
-            return db.ExecuteDataSet(DALHelper.Connection, "GetEleviFaraClasa1", null);
+           // return db.ExecuteDataSet(DALHelper.Connection, "GetEleviFaraClasa1", null);
+            retunr null;
         }
 
 
         public DataSet GetEleviById(int elevID)
         {
+            /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@elevID",elevID )
             };
             return db.ExecuteDataSet(DALHelper.Connection, "GetEleviById", paramList);
+             */
+            return null;
         }
 
         internal void AddElev(string nume, string prenume, string user, string parola)
         {
+            /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 
@@ -44,11 +50,13 @@ namespace PlatformaEducationala.DataAccessLayer
 
             };
             db.ExecuteNonQuery(DALHelper.Connection, "AddElev", paramList);
+             */
         }
 
 
         internal void UpdateElev(int id_elev, string nume, string prenume, string user, string parola)
         {
+            /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@elevID", id_elev),
@@ -59,19 +67,23 @@ namespace PlatformaEducationala.DataAccessLayer
 
             };
             db.ExecuteNonQuery(DALHelper.Connection, "UpdateElev", paramList);
+             */
         }
 
         internal void DeleteElev(int elevID)
         {
+            /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@elevID", elevID)
             };
             db.ExecuteNonQuery(DALHelper.Connection, "DeleteElev", paramList);
+             */
         }
 
         internal void AsocElevClasa(int id_elev,int id_clasa)
         {
+            /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@elevID", id_elev),
@@ -80,15 +92,19 @@ namespace PlatformaEducationala.DataAccessLayer
 
             };
             db.ExecuteNonQuery(DALHelper.Connection, "AsocElevClasa", paramList);
+             * /
         }
 
         public DataSet GetEleviByClasaId(int clasaID)
         {
+            /*
             SqlParameter[] paramList = new SqlParameter[]
             {
                 new SqlParameter("@clasaID",clasaID )
             };
             return db.ExecuteDataSet(DALHelper.Connection, "GetEleviByClasaId", paramList);
+             */
+            return null;
         }
 
     }
