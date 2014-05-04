@@ -24,5 +24,13 @@ namespace PlatformaEducationala.DataAccessLayer
                 return con;
             }
         }
+
+        internal static DbProviderFactory ProviderFactory
+        {
+            get
+            {
+                return factory;
+            }
+        }
     }
 }

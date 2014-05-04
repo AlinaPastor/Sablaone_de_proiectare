@@ -33,31 +33,36 @@ namespace PlatformaEducationala.DataAccessLayer
                 conn.Close();
             }
         }
-        public DataSet ExecuteDataSet(SqlConnection conn, String storedProcedureName, DbParameter[] paramsList)
+        public DataTable ExecuteDataSet(IDbConnection conn, String storedProcedureName, DbParameter[] paramsList)
         {
             // noi
-            DataSet dataSet = new DataSet();
-            using (IDbConnection con = DALHelper.Connection) 
+            DataTable dataTable = new DataTable();
+            using (conn)
             {
-                using (IDbCommand command = con.CreateCommand()) 
+                using (IDbCommand command = conn.CreateCommand())
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = storedProcedureName;
-                    con.Open();
+                    conn.Open();
 
                     if (paramsList != null)
                     {
                         foreach (DbParameter param in paramsList)
                         {
-                            cmd.Parameters.Add(param);
+                            command.Parameters.Add(param);
+
                         }
                     }
-                    dataSet.Load(command.ExecuteReader());
+                    // se executa procedura
+                    IDataReader reader = command.ExecuteReader();
+
+                    // se initializeaza datatable
+                    dataTable.Load(reader);
                 }
             }
-            return dataSet;
-          
-            
+            return dataTable;
+
+
             // end noi
             /*
 
@@ -122,66 +127,6 @@ namespace PlatformaEducationala.DataAccessLayer
             }
 
             return null;
-        }
-
-        public void GetProviderFactoryClasses()
-        {
-
-            IDbConnection con = DALHelper.Connection;
-
-            using (IDbCommand command = con.CreateCommand())
-            {
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.CommandText = "GetElevi";
-                con.Open();
-
-
-                using (IDataReader reader = command.ExecuteReader())
-                {
-                   
-
-                    while (reader.Read())
-                    {
-                        MessageBox.Show(reader["user_elev"].ToString());
-                    }
-                }
-            }
-
-
-
-
-            /*
-            
-            DbProviderFactory factory = DbProviderFactories.GetFactory("System.Data.SqlClient");
- 
-            using (DbConnection con = factory.CreateConnection())
-            {
-                con.ConnectionString = "Data Source=Alex-PC;Initial Catalog=PlatformaEduDB;User Id=sa;Password=1;";
-
-                using (DbCommand com = con.CreateCommand())
-                {
-                    com.CommandType = CommandType.Text;
-                    com.CommandText = "SELECT user_admin FROM admin";
-
-                    con.Open();
-
-                    //com.ExecuteNonQuery();
-                    //string result = com.Parameters["ReturnValue"].ToString();
-
-
-
-                    using (IDataReader reader = com.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            MessageBox.Show(reader["user_admin"].ToString());
-                        }
-                    }
-                    
-
-                    con.Close();
-                }
-            }*/
         }
 
     }

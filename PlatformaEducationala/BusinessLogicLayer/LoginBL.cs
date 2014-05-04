@@ -10,9 +10,9 @@ namespace PlatformaEducationala.BusinessLogicLayer
     class LoginBL
     {
         LoginDAL loginDAL = new LoginDAL();
-        internal DataSet Login(string user, string parola, int tipUser)
+        internal DataTable Login(string user, string parola, int tipUser)
         {
-            DataSet result = new DataSet();
+            DataTable result = null;
             switch (tipUser)
             {
                 case 1:

@@ -21,7 +21,7 @@ namespace PlatformaEducationala.DataAccessLayer
         public DataSet GetEleviFaraClasa()
         {
            // return db.ExecuteDataSet(DALHelper.Connection, "GetEleviFaraClasa1", null);
-            retunr null;
+            return null;
         }
 
 
@@ -92,7 +92,7 @@ namespace PlatformaEducationala.DataAccessLayer
 
             };
             db.ExecuteNonQuery(DALHelper.Connection, "AsocElevClasa", paramList);
-             * /
+             */
         }
 
         public DataSet GetEleviByClasaId(int clasaID)

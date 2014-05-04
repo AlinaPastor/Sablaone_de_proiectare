@@ -12,12 +12,12 @@ namespace PlatformaEducationala
 {
     public partial class Form1 : Form
     {
-       
+
         public Form1()
         {
             InitializeComponent();
             labelEroare.Text = "";
-            
+
         }
 
 
@@ -42,10 +42,11 @@ namespace PlatformaEducationala
             {
                 try
                 {
-                    if (loginBL.Login(user, parola, tipUser).Tables[0] != null)
+                    DataTable loginResult = loginBL.Login(user, parola, tipUser);
+
+                    if (loginResult.Rows.Count > 0)
                     {
-                        DataSet result = loginBL.Login(user, parola, tipUser);
-                        int id_user = int.Parse(result.Tables[0].Rows[0][0].ToString());
+                        int id_user = int.Parse(loginResult.Rows[0]["id_admin"].ToString());
 
                         //redirectare formular in functie de tip user
                         if (tipUser == 4)
@@ -73,15 +74,13 @@ namespace PlatformaEducationala
                         }
 
                     }
-
-
                     else
                         labelEroare.Text = "Numele de utilizator sau parola nu sunt valide!";
-
 
                 }
                 catch (Exception excep)
                 {
+                    MessageBox.Show(excep.Message.ToString());
                     labelEroare.Text = "Numele de utilizator si parola nu sunt valide pt ceea ce ati bifat!";
                 }
 
