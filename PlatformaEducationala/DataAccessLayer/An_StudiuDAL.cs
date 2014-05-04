@@ -11,64 +11,70 @@ namespace PlatformaEducationala.DataAccessLayer
     {
         DatabaseAccess db = new DatabaseAccess();
 
-        public DataSet GetAni_Studiu()
+        public DataTable GetAni_Studiu()
         {
-            /*
             return db.ExecuteDataSet(DALHelper.Connection, "GetAni_Studiu", null);
-             */
-            return null;
         }
 
-        public DataSet GetAn_StudiuById(int an_studiuID)
+        public DataTable GetAn_StudiuById(int an_studiuID)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@an_studiuID",an_studiuID )
-            };
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramAnStudiu = DALHelper.ProviderFactory.CreateParameter();
+            paramAnStudiu.ParameterName = "@an_studiuID";
+            paramAnStudiu.Value = an_studiuID;
+
+            paramList[0] = paramAnStudiu;
+
             return db.ExecuteDataSet(DALHelper.Connection, "GetAn_StudiuById", paramList);
-             */
-            return null;
         }
 
         internal void AddAn_Studiu(string an)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                
-                new SqlParameter("@an", an)
-            };
+            DbParameter[] paramList = new DbParameter[1];
+
+            DbParameter paramAn = DALHelper.ProviderFactory.CreateParameter();
+            paramAn.ParameterName = "@an";
+            paramAn.Value = an;
+
+            paramList[0] = paramAn;
+
             db.ExecuteNonQuery(DALHelper.Connection, "AddAn_Studiu", paramList);
-             */
+            
         }
 
 
         internal void UpdateAn_Studiu(int id_an_studiu, string an)
         {
-            /*
-            SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@an_studiuID", id_an_studiu),
-                new SqlParameter("@an", an)
-                
+            DbParameter[] paramList = new DbParameter[2];
 
-            };
+            DbParameter paramAnStudiuId = DALHelper.ProviderFactory.CreateParameter();
+            paramAnStudiuId.ParameterName = "@an_studiuID";
+            paramAnStudiuId.Value = id_an_studiu;
+
+            DbParameter paramAn = DALHelper.ProviderFactory.CreateParameter();
+            paramAn.ParameterName = "@an";
+            paramAn.Value = an;
+
+            paramList[0] = paramAnStudiuId;
+            paramList[1] = paramAn;
+     
             db.ExecuteNonQuery(DALHelper.Connection, "UpdateAn_Studiu", paramList);
-             */
+     
         }
 
         internal void DeleteAn_Studiu(int an_studiuID)
         {
-            /*SqlParameter[] paramList = new SqlParameter[]
-            {
-                new SqlParameter("@an_studiuID", an_studiuID)
-            };
-            db.ExecuteNonQuery(DALHelper.Connection, "DeleteAn_Studiu", paramList);
-             */
-        }
+            DbParameter[] paramList = new DbParameter[1];
 
-       
+            DbParameter paramAnStudiuId = DALHelper.ProviderFactory.CreateParameter();
+            paramAnStudiuId.ParameterName = "@an_studiuID";
+            paramAnStudiuId.Value = id_an_studiu;
+
+            paramList[0] = paramAnStudiuId;
+
+            db.ExecuteNonQuery(DALHelper.Connection, "DeleteAn_Studiu", paramList);
+        }
 
     }
 }
